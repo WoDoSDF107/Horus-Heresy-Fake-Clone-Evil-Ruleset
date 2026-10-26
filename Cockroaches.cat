@@ -3,18 +3,38 @@
   <entryLinks>
     <entryLink name="Gravel" id="3eda-f2ba-5fd6-92c3" hidden="false" import="true" targetId="eef2-e995-24b9-44fe" type="selectionEntry"/>
     <entryLink name="Roach Squad" id="252f-7131-1392-14fd" hidden="false" import="true" targetId="c2c7-dba8-9fdc-51d6" type="selectionEntry"/>
+    <entryLink name="Flame Roaches" id="ea66-52a6-5f9e-bfca" hidden="false" import="true" targetId="943a-63ca-446b-0a4b" type="selectionEntry"/>
+    <entryLink name="Fireroach" id="f325-c77a-7bd9-2215" hidden="false" import="true" targetId="d17a-daea-1334-d69d" type="selectionEntry"/>
   </entryLinks>
+  <sharedRules>
+    <rule name="Sewer Sherpas" id="014d-9344-2dde-c2a4" hidden="false">
+      <description>Once per Player Turn, a Sewer move may be declared for a Single Infantry unit under the Controlling Player&apos;s control. For a Sewer Move to be considered eligible, the Controlling Player must select One Objective marker on the board, and that Objective Marker must follow both of the following criteria.
+
+
+- That Objective Marker was under the Control of the Controlling Player at the end of the previous player turn
+
+
+- That Objective Marker is not contested
+
+
+To perform a Sewer Move, during the Move Subphase, the Controlling Player must select One Infantry unit that has not yet made a move this turn. The Controlling Player&apos;s unit is considered to have the Antigrav Subtype until the Sewer Move is resolved, and the Movement Characteristic of all Models in that Unit is set to the distance between that Unit&apos;s current position and the selected Objective Marker. The Infantry unit must then move as close as possible to that Objective Marker.</description>
+    </rule>
+  </sharedRules>
   <sharedSelectionEntries>
     <selectionEntry name="Gravel" id="eef2-e995-24b9-44fe" hidden="false" import="true" type="unit">
       <categoryLinks>
         <categoryLink name="High Command" id="8142-538e-5f7c-dac6" hidden="false" primary="true" targetId="d9a6-9b5f-b18a-4d63"/>
       </categoryLinks>
+      <constraints>
+        <constraint id="9b8a-02eb-4aaa-5f94" field="selections" scope="parent" shared="true" type="max" value="1"/>
+      </constraints>
       <infoLinks>
         <infoLink name="Loot the Dead (X)" id="5a71-b9cb-3820-6bb0" hidden="false" targetId="e348-c621-0738-cb6e" type="rule">
           <modifiers>
             <modifier field="name" type="set" value="Loot the Dead (3)"/>
           </modifiers>
         </infoLink>
+        <infoLink name="Sewer Sherpas" id="4de2-b554-19a7-8df6" hidden="false" targetId="014d-9344-2dde-c2a4" type="rule"/>
       </infoLinks>
       <rules>
         <rule name="Dig for Treasure" id="928d-8eef-c182-ed3d" hidden="false">
@@ -34,6 +54,11 @@ During the controlling player of this model&apos;s Victory Sub-Phase, if a model
             <constraint id="4f69-6983-e211-00f5-min" field="selections" scope="parent" shared="true" type="min" value="1"/>
             <constraint id="4f69-6983-e211-00f5-max" field="selections" scope="parent" shared="true" type="max" value="1"/>
           </constraints>
+          <costs>
+            <cost name="Apex Detachment(s)" typeId="159d-855c-533d-f592" value="0"/>
+            <cost name="Auxiliary Detachment(s)" typeId="3e8e-05ee-be52-12d6" value="0"/>
+            <cost name="Point(s)" typeId="9893-c379-920b-8982" value="200"/>
+          </costs>
           <profiles>
             <profile name="Gravel" id="bfba-bedf-3292-1935" hidden="false" typeId="a76f-8e23-8c3e-166d" typeName="Profile">
               <characteristics>
@@ -117,6 +142,9 @@ During the controlling player of this model&apos;s Victory Sub-Phase, if a model
       <categoryLinks>
         <categoryLink name="Troops" id="b27b-7956-3bfb-2b53" hidden="false" primary="true" targetId="88e6-d373-4152-0dd8"/>
       </categoryLinks>
+      <infoLinks>
+        <infoLink name="Sewer Sherpas" id="4ea7-668d-29ae-d253" hidden="false" targetId="014d-9344-2dde-c2a4" type="rule"/>
+      </infoLinks>
       <selectionEntries>
         <selectionEntry name="Roach" id="5a01-dbb6-483a-2be1" hidden="false" import="true" type="model">
           <categoryLinks>
@@ -126,13 +154,18 @@ During the controlling player of this model&apos;s Victory Sub-Phase, if a model
             <constraint id="39ab-ecb1-7c9c-b8e1" field="selections" scope="parent" shared="true" type="max" value="20"/>
             <constraint id="344d-d047-10da-ffe5" field="selections" scope="parent" shared="true" type="min" value="10"/>
           </constraints>
+          <costs>
+            <cost name="Apex Detachment(s)" typeId="159d-855c-533d-f592" value="0"/>
+            <cost name="Auxiliary Detachment(s)" typeId="3e8e-05ee-be52-12d6" value="0"/>
+            <cost name="Point(s)" typeId="9893-c379-920b-8982" value="2"/>
+          </costs>
           <profiles>
             <profile name="Roach" id="5e12-8acd-9128-43a2" hidden="false" typeId="a76f-8e23-8c3e-166d" typeName="Profile">
               <characteristics>
                 <characteristic name="Type" typeId="50fc-9241-d4a2-045b">Infantry</characteristic>
                 <characteristic name="M" typeId="a106-a779-d272-5e93">6</characteristic>
                 <characteristic name="WS" typeId="253c-d694-4695-c89e">2</characteristic>
-                <characteristic name="BS" typeId="0cd5-b269-e3bc-028b">3</characteristic>
+                <characteristic name="BS" typeId="0cd5-b269-e3bc-028b">2</characteristic>
                 <characteristic name="S" typeId="498f-dce1-59fd-d8d7">3</characteristic>
                 <characteristic name="T" typeId="3120-8275-e537-ecd2">3</characteristic>
                 <characteristic name="W" typeId="f5cc-79a3-d302-cc1d">1</characteristic>
@@ -149,8 +182,13 @@ During the controlling player of this model&apos;s Victory Sub-Phase, if a model
           </profiles>
           <selectionEntryGroups>
             <selectionEntryGroup name="May exchange Ramshackle Rifle for:" id="bd99-5ba4-9ecd-0489" hidden="false">
+              <constraints>
+                <constraint id="5540-cf13-bef1-1f3c" field="selections" scope="parent" shared="true" type="min" value="1"/>
+                <constraint id="5554-39c6-ccbc-00a5" field="selections" scope="parent" shared="true" type="max" value="1"/>
+              </constraints>
               <entryLinks>
                 <entryLink name="Ramshackle Rifle" id="36a9-ab5a-f378-7854" hidden="false" import="true" targetId="bdb3-6088-b6d0-38a7" type="selectionEntry"/>
+                <entryLink name="Scrap Shotgun" id="9018-4314-70a1-04ac" hidden="false" import="true" targetId="d23e-cfd2-f8b1-cb59" type="selectionEntry"/>
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
@@ -175,6 +213,240 @@ During the controlling player of this model&apos;s Victory Sub-Phase, if a model
             <characteristic name="D" typeId="88c3-1ca5-7dc1-f291">1</characteristic>
             <characteristic name="Special Rules" typeId="5aad-137a-8ee2-63fd">Overload (1)</characteristic>
             <characteristic name="Traits" typeId="1247-79d2-6cc1-8a03"/>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry name="Scrap Shotgun" id="d23e-cfd2-f8b1-cb59" hidden="false" import="true" type="upgrade">
+      <infoLinks>
+        <infoLink name="Shred (X)" id="1961-3d4d-9410-f847" hidden="false" targetId="d01e-f96b-b5c1-8fb1" type="rule">
+          <modifiers>
+            <modifier field="name" type="set" value="Shred (5+)"/>
+          </modifiers>
+        </infoLink>
+        <infoLink name="Overload (X)" id="8566-0bf8-e93c-192e" hidden="false" targetId="1d3a-d1e2-871a-63ae" type="rule">
+          <modifiers>
+            <modifier field="name" type="set" value="Overload (1)"/>
+          </modifiers>
+        </infoLink>
+      </infoLinks>
+      <profiles>
+        <profile name="Scrap Shotgun" id="4be8-2247-01e9-2ef7" hidden="false" typeId="c591-09ed-3e6f-eb2b" typeName="Ranged Weapon">
+          <characteristics>
+            <characteristic name="R" typeId="cdb0-8654-6840-1037">6</characteristic>
+            <characteristic name="FP" typeId="5037-1f27-1790-e355">1</characteristic>
+            <characteristic name="RS" typeId="b9da-ee13-79f9-fa63">4</characteristic>
+            <characteristic name="AP" typeId="7a23-0248-2b94-5951">5</characteristic>
+            <characteristic name="D" typeId="88c3-1ca5-7dc1-f291">1</characteristic>
+            <characteristic name="Special Rules" typeId="5aad-137a-8ee2-63fd">Shred (5+), Overload (1)</characteristic>
+            <characteristic name="Traits" typeId="1247-79d2-6cc1-8a03">Assault</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry name="Flame Roaches" id="943a-63ca-446b-0a4b" hidden="false" import="true" type="upgrade">
+      <categoryLinks>
+        <categoryLink name="Troops" id="262f-8125-2300-3a46" hidden="false" primary="true" targetId="88e6-d373-4152-0dd8"/>
+      </categoryLinks>
+      <infoLinks>
+        <infoLink name="Sewer Sherpas" id="b315-7d5d-a077-b4ac" hidden="false" targetId="014d-9344-2dde-c2a4" type="rule"/>
+      </infoLinks>
+      <selectionEntries>
+        <selectionEntry name="Flame Roach" id="b5e6-71c8-10ff-f5e1" hidden="false" import="true" type="model">
+          <categoryLinks>
+            <categoryLink name="Infantry Model Type" id="68f8-9a4f-d260-728f" hidden="false" primary="false" targetId="594d-fa82-13cb-a345"/>
+          </categoryLinks>
+          <constraints>
+            <constraint id="1bfb-fb34-6aa8-7236" field="selections" scope="parent" shared="true" type="max" value="10"/>
+            <constraint id="c9b2-1c98-066f-96bb" field="selections" scope="parent" shared="true" type="min" value="5"/>
+          </constraints>
+          <costs>
+            <cost name="Apex Detachment(s)" typeId="159d-855c-533d-f592" value="0"/>
+            <cost name="Auxiliary Detachment(s)" typeId="3e8e-05ee-be52-12d6" value="0"/>
+            <cost name="Point(s)" typeId="9893-c379-920b-8982" value="10"/>
+          </costs>
+          <entryLinks>
+            <entryLink name="F.G-103" id="3282-9b65-dfaf-2f16" hidden="false" import="true" targetId="b1f5-2bca-030c-286c" type="selectionEntry">
+              <constraints>
+                <constraint id="612f-3a22-37cd-1df6" field="selections" scope="parent" shared="true" type="max" value="1"/>
+                <constraint id="b804-7880-8562-8b3c" field="selections" scope="parent" shared="true" type="min" value="1"/>
+              </constraints>
+            </entryLink>
+          </entryLinks>
+          <profiles>
+            <profile name="Flame Roach" id="e507-d18a-0fa3-763a" hidden="false" typeId="a76f-8e23-8c3e-166d" typeName="Profile">
+              <characteristics>
+                <characteristic name="Type" typeId="50fc-9241-d4a2-045b">Infantry</characteristic>
+                <characteristic name="M" typeId="a106-a779-d272-5e93">6</characteristic>
+                <characteristic name="WS" typeId="253c-d694-4695-c89e">2</characteristic>
+                <characteristic name="BS" typeId="0cd5-b269-e3bc-028b">2</characteristic>
+                <characteristic name="S" typeId="498f-dce1-59fd-d8d7">3</characteristic>
+                <characteristic name="T" typeId="3120-8275-e537-ecd2">3</characteristic>
+                <characteristic name="W" typeId="f5cc-79a3-d302-cc1d">1</characteristic>
+                <characteristic name="I" typeId="af9d-7db8-dc95-71c1">1</characteristic>
+                <characteristic name="A" typeId="024e-bdb1-7982-25a0">1</characteristic>
+                <characteristic name="LD" typeId="02ad-ebe6-86e7-9fd6">6</characteristic>
+                <characteristic name="CL" typeId="9cd1-0e7c-2cd6-5f2f">6</characteristic>
+                <characteristic name="WP" typeId="f714-1726-37d3-44df">6</characteristic>
+                <characteristic name="IN" typeId="29c5-925d-5b1d-1e77">6</characteristic>
+                <characteristic name="SAV" typeId="03bd-4ecb-351d-143b">6+</characteristic>
+                <characteristic name="INV" typeId="a951-a772-7ce0-0b64">-</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+    </selectionEntry>
+    <selectionEntry name="F.G-103" id="b1f5-2bca-030c-286c" hidden="false" import="true" type="upgrade">
+      <profiles>
+        <profile name="F.G-103" id="386b-477d-8873-7ffa" hidden="false" typeId="c591-09ed-3e6f-eb2b" typeName="Ranged Weapon">
+          <characteristics>
+            <characteristic name="R" typeId="cdb0-8654-6840-1037">Template</characteristic>
+            <characteristic name="FP" typeId="5037-1f27-1790-e355">1</characteristic>
+            <characteristic name="RS" typeId="b9da-ee13-79f9-fa63">3</characteristic>
+            <characteristic name="AP" typeId="7a23-0248-2b94-5951">-</characteristic>
+            <characteristic name="D" typeId="88c3-1ca5-7dc1-f291">1</characteristic>
+            <characteristic name="Special Rules" typeId="5aad-137a-8ee2-63fd">Template, Panic (1)</characteristic>
+            <characteristic name="Traits" typeId="1247-79d2-6cc1-8a03">Flame</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry name="Fireroach" id="d17a-daea-1334-d69d" hidden="false" import="true" type="unit">
+      <categoryLinks>
+        <categoryLink name="Command" id="6a7e-db71-4a4f-41f1" hidden="false" primary="true" targetId="6dbf-654a-f06f-2d69"/>
+      </categoryLinks>
+      <constraints>
+        <constraint id="e638-470e-e952-ab27" field="selections" scope="parent" shared="true" type="max" value="1"/>
+      </constraints>
+      <infoLinks>
+        <infoLink name="Sewer Sherpas" id="9798-717d-f6fb-aeab" hidden="false" targetId="014d-9344-2dde-c2a4" type="rule"/>
+      </infoLinks>
+      <rules>
+        <rule name="Lord of Inferno" id="021e-472e-df0c-b2ae" hidden="false">
+          <description>A unit with at least model with the Lord of Inferno Special Rule receives a 3+ Invulnerable Save against attacks with the Flame trait.</description>
+        </rule>
+      </rules>
+      <selectionEntries>
+        <selectionEntry name="Fireroach" id="f53d-b0a2-dcfc-bec8" hidden="false" import="true" type="model">
+          <categoryLinks>
+            <categoryLink name="Infantry Model Type" id="5a76-be25-81ee-9154" hidden="false" primary="false" targetId="594d-fa82-13cb-a345"/>
+            <categoryLink name="Command Model Sub-type" id="ec34-061b-4952-bd61" hidden="false" primary="false" targetId="9871-cb62-5283-2216"/>
+            <categoryLink name="Unique Model Sub-Type" id="af0e-f103-b3ba-db81" hidden="false" primary="false" targetId="b980-187b-2b17-d635"/>
+          </categoryLinks>
+          <constraints>
+            <constraint id="1828-7c4d-8b86-fd93" field="selections" scope="parent" shared="true" type="min" value="1"/>
+            <constraint id="d422-5756-c225-3dbe" field="selections" scope="parent" shared="true" type="max" value="1"/>
+          </constraints>
+          <costs>
+            <cost name="Apex Detachment(s)" typeId="159d-855c-533d-f592" value="0"/>
+            <cost name="Auxiliary Detachment(s)" typeId="3e8e-05ee-be52-12d6" value="0"/>
+            <cost name="Point(s)" typeId="9893-c379-920b-8982" value="90"/>
+          </costs>
+          <entryLinks>
+            <entryLink name="M1911" id="b34e-7957-3cf1-83c5" hidden="false" import="true" targetId="56c6-b571-8480-9ed8" type="selectionEntry">
+              <constraints>
+                <constraint id="4f02-f543-beb7-af60-min" field="selections" scope="parent" shared="true" type="min" value="1"/>
+                <constraint id="4f02-f543-beb7-af60-max" field="selections" scope="parent" shared="true" type="max" value="1"/>
+              </constraints>
+            </entryLink>
+          </entryLinks>
+          <profiles>
+            <profile name="Fireroach" id="3082-d8a0-7c1e-c1f8" hidden="false" typeId="a76f-8e23-8c3e-166d" typeName="Profile">
+              <characteristics>
+                <characteristic name="Type" typeId="50fc-9241-d4a2-045b">Infantry (Command, Unique)</characteristic>
+                <characteristic name="M" typeId="a106-a779-d272-5e93">6</characteristic>
+                <characteristic name="WS" typeId="253c-d694-4695-c89e">3</characteristic>
+                <characteristic name="BS" typeId="0cd5-b269-e3bc-028b">4</characteristic>
+                <characteristic name="S" typeId="498f-dce1-59fd-d8d7">3</characteristic>
+                <characteristic name="T" typeId="3120-8275-e537-ecd2">3</characteristic>
+                <characteristic name="W" typeId="f5cc-79a3-d302-cc1d">3</characteristic>
+                <characteristic name="I" typeId="af9d-7db8-dc95-71c1">2</characteristic>
+                <characteristic name="A" typeId="024e-bdb1-7982-25a0">3</characteristic>
+                <characteristic name="LD" typeId="02ad-ebe6-86e7-9fd6">8</characteristic>
+                <characteristic name="CL" typeId="9cd1-0e7c-2cd6-5f2f">8</characteristic>
+                <characteristic name="WP" typeId="f714-1726-37d3-44df">6</characteristic>
+                <characteristic name="IN" typeId="29c5-925d-5b1d-1e77">6</characteristic>
+                <characteristic name="SAV" typeId="03bd-4ecb-351d-143b">6+</characteristic>
+                <characteristic name="INV" typeId="a951-a772-7ce0-0b64">6+</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selectionEntries>
+            <selectionEntry name="Thermal Dagger" id="e4d4-25b1-d0a5-8410" hidden="false" import="true" type="upgrade">
+              <constraints>
+                <constraint id="a668-cfd6-53a7-e67b-min" field="selections" scope="parent" shared="true" type="min" value="1"/>
+                <constraint id="a668-cfd6-53a7-e67b-max" field="selections" scope="parent" shared="true" type="max" value="1"/>
+              </constraints>
+              <profiles>
+                <profile name="Thermal Dagger" id="deeb-ff63-fd29-a03f" hidden="false" typeId="3587-6dcd-005c-c263" typeName="Melee Weapon">
+                  <characteristics>
+                    <characteristic name="IM" typeId="6eec-4093-f946-1014">+3</characteristic>
+                    <characteristic name="AM" typeId="03d0-6094-84f0-e27e">A</characteristic>
+                    <characteristic name="SM" typeId="4505-de6f-d4ae-6280">S</characteristic>
+                    <characteristic name="AP" typeId="a014-126b-3b7b-27e8">-</characteristic>
+                    <characteristic name="D" typeId="6a9d-4feb-065a-33e7">1</characteristic>
+                    <characteristic name="Special Rules" typeId="ebe0-7b28-b40c-694e">Breaching (5+)</characteristic>
+                    <characteristic name="Traits" typeId="76e3-c188-bc65-3467"/>
+                  </characteristics>
+                </profile>
+              </profiles>
+            </selectionEntry>
+            <selectionEntry name="Fire Bomb" id="8a67-7410-f076-c4c9" hidden="false" import="true" type="upgrade">
+              <constraints>
+                <constraint id="317f-1bc7-01f3-6865-min" field="selections" scope="parent" shared="true" type="min" value="1"/>
+                <constraint id="317f-1bc7-01f3-6865-max" field="selections" scope="parent" shared="true" type="max" value="1"/>
+              </constraints>
+              <infoLinks>
+                <infoLink name="Aflame (X)" id="d95f-ecbd-40bd-fe47" hidden="false" targetId="fdc7-d2a1-338f-df11" type="rule">
+                  <modifiers>
+                    <modifier field="name" type="set" value="Aflame (1)"/>
+                  </modifiers>
+                </infoLink>
+                <infoLink name="Blast (X)" id="ced6-8660-1f16-1749" hidden="false" targetId="8687-05f8-7034-412c" type="rule">
+                  <modifiers>
+                    <modifier field="name" type="set" value="Blast (3&quot;)"/>
+                  </modifiers>
+                </infoLink>
+              </infoLinks>
+              <profiles>
+                <profile name="Fire Bomb" id="9198-61cf-b4cf-a44c" hidden="false" typeId="c591-09ed-3e6f-eb2b" typeName="Ranged Weapon">
+                  <characteristics>
+                    <characteristic name="R" typeId="cdb0-8654-6840-1037">6</characteristic>
+                    <characteristic name="FP" typeId="5037-1f27-1790-e355">1</characteristic>
+                    <characteristic name="RS" typeId="b9da-ee13-79f9-fa63">3</characteristic>
+                    <characteristic name="AP" typeId="7a23-0248-2b94-5951">-</characteristic>
+                    <characteristic name="D" typeId="88c3-1ca5-7dc1-f291">1</characteristic>
+                    <characteristic name="Special Rules" typeId="5aad-137a-8ee2-63fd">Blast (3&quot;), Aflame (1)</characteristic>
+                    <characteristic name="Traits" typeId="1247-79d2-6cc1-8a03">Assault, Flame</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Fire Bomb" id="3035-fae8-b4b2-ec46" hidden="false" typeId="5ec5-e0c3-1701-6f16" typeName="Wargear">
+                  <characteristics>
+                    <characteristic name="Summary" typeId="8e7d-a0ae-fd85-983c">&quot;A Fire Bomb can be used to make attacks during the Volley Step.&quot;</characteristic>
+                    <characteristic name="Description" typeId="9944-2f6d-d61b-03b5">When making Volley Attacks during Step 4 of the Charge Procedure with a Unit that includes at least one Model with Fire Bombs, the Controlling Player may choose to make a single attack with a Fire Bomb instead of making a normal Shooting Attack.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntry>
+      </selectionEntries>
+    </selectionEntry>
+    <selectionEntry name="M1911" id="56c6-b571-8480-9ed8" hidden="false" import="true" type="upgrade">
+      <infoLinks>
+        <infoLink name="Pistol" id="015b-679e-0cfe-0e32" hidden="false" targetId="2bf6-55c8-6810-a71c" type="rule"/>
+      </infoLinks>
+      <profiles>
+        <profile name="M1911" id="cee0-f9c4-cf38-4e31" hidden="false" typeId="c591-09ed-3e6f-eb2b" typeName="Ranged Weapon">
+          <characteristics>
+            <characteristic name="R" typeId="cdb0-8654-6840-1037">12</characteristic>
+            <characteristic name="FP" typeId="5037-1f27-1790-e355">1</characteristic>
+            <characteristic name="RS" typeId="b9da-ee13-79f9-fa63">3</characteristic>
+            <characteristic name="AP" typeId="7a23-0248-2b94-5951">-</characteristic>
+            <characteristic name="D" typeId="88c3-1ca5-7dc1-f291">1</characteristic>
+            <characteristic name="Special Rules" typeId="5aad-137a-8ee2-63fd">Pistol</characteristic>
+            <characteristic name="Traits" typeId="1247-79d2-6cc1-8a03">Assault</characteristic>
           </characteristics>
         </profile>
       </profiles>
