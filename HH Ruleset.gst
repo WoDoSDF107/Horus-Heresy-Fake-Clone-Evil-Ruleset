@@ -298,7 +298,6 @@
             </categoryLink>
           </categoryLinks>
           <constraints>
-            <constraint id="5611-db49-9e64-44c6-min" field="forces" includeChildSelections="true" scope="roster" shared="true" type="min" value="1"/>
             <constraint id="5611-db49-9e64-44c6-max" field="forces" includeChildSelections="true" scope="roster" shared="true" type="max" value="1"/>
             <constraint id="8613-3ef7-c5b4-4ccb" field="forces" includeChildSelections="false" scope="parent" shared="true" type="min" value="1"/>
             <constraint id="5df5-5821-ea4c-d0e1" field="forces" includeChildSelections="false" scope="roster" shared="true" type="max" value="1"/>
